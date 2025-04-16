@@ -1,0 +1,75 @@
+ion-content {
+    --padding-top: 40px;
+    --padding-bottom: 40px;
+    --padding-start: 40px;
+    --padding-end: 40px;
+}
+
+h2 {
+    text-align: center;
+}
+
+/* Box styles */
+#search-box, #table-box {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+    align-items: center;
+}
+
+/* Light grey background for form and search boxes */
+#search-box {
+    background-color: #f2f2f2;
+}
+  
+#table-box {
+    width: 100%;
+    max-width: none;
+}
+
+#message {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    color: rgb(224, 0, 0);
+}
+
+#search-box ion-input {
+    border: 1px solid #000;
+    max-width: 50%;
+}
+
+ion-grid {
+    display: table;
+    width: 100%;
+    table-layout: fixed; // Ensures columns stay aligned
+    border-collapse: collapse;
+    text-align: center;
+    font-size: 12px;
+}
+
+ion-row {
+    display: table-row;
+}
+
+ion-col {
+    display: table-cell;
+    border: solid 1px #000000;
+}
+
+/* Responsive Design */
+@media (max-width: 700px) {
+
+    ion-content {
+        --padding-top: 30px;
+        --padding-bottom: 30px;
+        --padding-start: 30px;
+        --padding-end: 30px;
+    }
+
+    ion-col {
+        font-size: 10px;
+    }
+}

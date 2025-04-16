@@ -1,17 +1,62 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Search Items
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-header collapse="condense">
+  <ion-toolbar>
+    <ion-title size="large">Search Items</ion-title>
+  </ion-toolbar>
+</ion-header> 
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+<app-explore-container name="Tab 1 page"></app-explore-container>
+
+<ion-content [fullscreen]="true">
+
+  <h2>Search Items</h2>
+
+  <!-- Search Box -->
+  <section id="search-box">
+    
+    <p>Here you can view all the item records and also search for items by name.</p>
+
+    <ion-input [(ngModel)]="searched_item">Enter item name:</ion-input>
+    <ion-button (click)="searchItem()">Search</ion-button>
+    <ion-button (click)="clearForm()">Clear</ion-button>
+    <br>
+    <div id="message">{{ message }}</div> 
+  </section>
+
+  <!-- Table Box -->
+  <section id="table-box">
+    <!-- Table -->
+    <ion-grid>
+      <ion-row>
+        <ion-col>Item ID</ion-col>
+        <ion-col>Name</ion-col>
+        <ion-col>Category</ion-col>
+        <ion-col>Quantity</ion-col>
+        <ion-col>Price</ion-col>
+        <ion-col>Supplier</ion-col>
+        <ion-col>Stock Status</ion-col>
+        <ion-col>Featured Item</ion-col>
+        <ion-col>Special Note</ion-col>
+      </ion-row>
+      <ion-row *ngFor="let item of displayItems">
+        <ion-col>{{item.item_id}}</ion-col>
+        <ion-col>{{item.item_name}}</ion-col>
+        <ion-col>{{item.category}}</ion-col>
+        <ion-col>{{item.quantity}}</ion-col>
+        <ion-col>{{item.price}}</ion-col>
+        <ion-col>{{item.supplier_name}}</ion-col>
+        <ion-col>{{item.stock_status}}</ion-col>
+        <ion-col>{{item.featured_item ? 'Yes' : 'No'}}</ion-col>
+        <ion-col>{{item.special_note}}</ion-col>
+      </ion-row>
+    </ion-grid>
+  </section>
+
 </ion-content>
