@@ -14,7 +14,7 @@ export class Tab1Page implements OnInit {
   message:string = ""; // error display message
   searched_item:string = ""; // stores the searched item name
 
-  item:InventoryItem = new InventoryItem(0, "", "", 0, 0, "", "", false, "");
+  item:InventoryItem = new InventoryItem(0, "", "", 0, 0, "", "", 0, "");
   items:InventoryItem[] = [];
   displayItems: InventoryItem[] = []; // stores filtered items to display
 

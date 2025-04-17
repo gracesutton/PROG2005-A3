@@ -7,10 +7,10 @@ export class InventoryItem {
     price: number;
     supplier_name: string;
     stock_status: string;
-    featured_item: boolean; // true = yes, false = no
+    featured_item: number; // 1 = yes, 0 = no
     special_note?: string; // optional
 
-    constructor(item_id: number, item_name: string, category: string, quantity: number, price: number, supplier_name: string, stock_status: string, featured_item: boolean, special_note?: string) {
+    constructor(item_id: number, item_name: string, category: string, quantity: number, price: number, supplier_name: string, stock_status: string, featured_item: number, special_note?: string) {
         
         this.item_id = item_id;
         this.item_name = item_name;

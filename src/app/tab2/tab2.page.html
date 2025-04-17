@@ -13,5 +13,55 @@
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  
+  <form #myForm="ngForm" (submit)= "onSubmit(myForm)">
+
+    <ion-label for="itemName">Name</ion-label>
+    <ion-input #nameInput="ngModel" id="itemName" name="name" placeholder="Headset" [(ngModel)]="name" required></ion-input>
+
+    <ion-label for="sname">Supplier name</ion-label>
+    <ion-input #snameInput="ngModel" id="sname" name="supplier" placeholder="Mazine Meriche" [(ngModel)]="supplier" required></ion-input>
+
+    <ion-label for="snote">Special note</ion-label>
+    <ion-input #snoteInput="ngModel" id="snote" name="snote" placeholder="Fragile" [(ngModel)]="snote"></ion-input>
+
+    <ion-label for="quantity">Quantity</ion-label>
+    <ion-input #quantityInput="ngModel" id="quantity" name="quantity" type="number" min="1" placeholder="1" [(ngModel)]="quantity" required></ion-input>
+
+    <ion-label for="price">Price</ion-label>
+    <ion-input #priceInput="ngModel" id="price" name="price" type="number" min="1" placeholder="1" [(ngModel)]="price" required></ion-input>
+
+    <ion-label for="category">Category</ion-label>
+    <ion-select #categorySelect="ngModel" label="Choose a category" id="category" name="category" [(ngModel)]="category" required>
+      <ion-select-option value="Electronics">Electronics</ion-select-option>
+      <ion-select-option value="Furniture">Furniture</ion-select-option>
+      <ion-select-option value="Clothing">Clothing</ion-select-option>
+      <ion-select-option value="Tools">Tools</ion-select-option>
+      <ion-select-option value="Miscellaneous">Miscellaneous</ion-select-option>
+    </ion-select>
+
+    <ion-label for="stockStatus">Stock status</ion-label>
+    <ion-select #stockSelect="ngModel" label="Choose a stock status" id="stockStatus" name="stock" [(ngModel)]="stock" required>
+      <ion-select-option  value="In stock">In stock</ion-select-option>
+      <ion-select-option value="Low stock">Low stock</ion-select-option>
+      <ion-select-option value="Out of stock">Out of stock</ion-select-option>
+    </ion-select>
+
+    <ion-label for="featured">Featured</ion-label>
+    <ion-select #featuredSelect="ngModel" label="Featured item" id="stockStatus" name="featured" [(ngModel)]="featured" required>
+      <ion-select-option value="1">Yes</ion-select-option>
+      <ion-select-option value="0">No</ion-select-option>
+    </ion-select>
+
+    <div>
+      <p class="error" *ngIf="nameInput.invalid && (nameInput.touched ||submitButtonPressed)">Need a name</p>
+      <p class="error" *ngIf="snameInput.invalid && (snameInput.touched ||submitButtonPressed)">Need a supplier name</p>
+      <p class="error" *ngIf="quantityInput.invalid && (quantityInput.touched ||submitButtonPressed)">Invalid quantity</p>
+      <p class="error" *ngIf="priceInput.invalid && (priceInput.touched ||submitButtonPressed)">Invalid price</p>
+      <p class="error" *ngIf="categorySelect.invalid && (categorySelect.touched ||submitButtonPressed)">Need a category</p>
+      <p class="error" *ngIf="stockSelect.invalid && (stockSelect.touched ||submitButtonPressed)">Need a category</p> 
+    </div>
+
+    <ion-button type="submit">Submit</ion-button>
+  </form>
 </ion-content>
