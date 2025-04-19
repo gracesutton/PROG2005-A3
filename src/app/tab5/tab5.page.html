@@ -1,0 +1,101 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Help</ion-title>
+    <!-- Help widget for default header -->
+    <ion-button slot="end" routerLink="/tabs/tab5">
+      <ion-icon slot="icon-only" name="help-circle-outline"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Help</ion-title>
+      <!-- Help widget for condensed header -->
+      <ion-button slot="end" routerLink="/tabs/tab5">
+        <ion-icon slot="icon-only" name="help-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-toolbar>
+  </ion-header>
+
+  <h2>Help Page</h2>
+  <p>On this page you can find some FAQs and troubleshooting guidance.</p>
+  <br>
+
+  <h3>Frequently Asked Questions</h3>
+
+  <div>
+
+    <h4>How do I list and search for items?</h4>
+    <ul>
+      <li>Go to the <a href="/tabs/tab1">Search</a> page.</li>
+      <li>Enter the item name in the search field and click “Search”.</li>
+      <li>All matching records will appear in the table below.</li>
+    </ul>
+
+    <h4>How do I add new items and view featured items?</h4>
+    <ul>
+      <li>Navigate to the <a href="/tabs/tab2">Add Item</a> page to view a list of the featured items.</li>
+      <li>To add an item, fill in all required fields on the page (name, category, quantity, etc.).</li>
+      <li>Click “Submit” to add the new item.</li>
+
+    </ul>
+
+    <h4>How can I update or delete an existing item?</h4>
+    <ul>
+      <li>Open the <a href="/tabs/tab3">Edit Items</a> page.</li>
+      <li>Search for the item by name and click “Search”.</li>
+      <li>Use the “Edit” button to change details, then click “Update”.</li>
+      <li>Use the “Delete” button to remove the item.</li>
+    </ul>
+
+    <h4>Where can I find the privacy and security information?</h4>
+    <ul>
+      <li>Select the <a href="/tabs/tab4">Privacy &amp; Security</a> page.</li>
+      <li>Read the guidelines on data handling, user permissions, and security best practices.</li>
+    </ul>
+
+  </div>
+
+  <h3>Troubleshooting Common Issues</h3>
+
+  <div>
+
+      <h4>I can't log into my account</h4>
+      <ul>
+          <li>Check that your username and password are correct.</li>
+          <li>If you forgot your password, use the "Forgot Password" link to reset it.</li>
+      </ul>
+
+      <h4>Item details aren't saving correctly</h4>
+      <ul>
+          <li>Ensure all required fields are filled out correctly.</li>
+          <li>Also, check for any special characters or invalid inputs.</li>
+      </ul>
+
+      <h4>The system is running slowly or pages aren't loading properly</h4>
+      <ul>
+          <li>Clear your browser cache, refresh the page, or try a different browser.</li>
+          <li>Check your internet connection..</li>
+      </ul>
+      
+      <h4>Any other issues</h4>
+      <ul>
+          <li>Note down the error message and contact technical support.</li>
+      </ul>     
+
+  </div>
+
+  <div class="contact-support">
+      <h3>Contact Support</h3>
+      <p>If your issue is not resolved through the guidance above, please contact our technical support team:</p>
+      <ul>
+          <li>Email: support&#64;inventorymanagementsystem.com</li>
+          <li>Phone: (07) 5523 4567 available weekdays 9am-5pm (AEST)</li>
+      </ul>
+
+      <p>Thank you for using our Inventory Management System!</p>
+  </div>
+
+</ion-content>

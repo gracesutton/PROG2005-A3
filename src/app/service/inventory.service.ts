@@ -13,9 +13,7 @@ export class InventoryService {
   
   private headers = new Headers({'Content-Type': 'application/json'});
 
-  constructor(private http:HttpClient) {
-    console.log('InventoryService base URL:', this.url);
-  }
+  constructor(private http:HttpClient) { }
 
   // get all items
   public getAllItems(): Observable<InventoryItem[]> {
