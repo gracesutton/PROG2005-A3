@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { InventoryItem } from '../service/my.inventory';
 import { InventoryService } from '../service/inventory.service';
+import { AlertController} from '@ionic/angular';
 
 @Component({
   selector: 'app-tab1',
@@ -17,8 +18,9 @@ export class Tab1Page implements OnInit {
   item:InventoryItem = new InventoryItem(0, "", "", 0, 0, "", "", 0, "");
   items:InventoryItem[] = [];
   displayItems: InventoryItem[] = []; // stores filtered items to display
+  
 
-  constructor(private service: InventoryService) {
+  constructor(private service: InventoryService, private alertContrl: AlertController) {
     
   }
 
@@ -58,6 +60,40 @@ export class Tab1Page implements OnInit {
     this.searched_item = "";
     this.message = "";
     this.getAllItems();
+  }
+
+  
+
+  async deleteItem(name:string){
+
+    const alert = await this.alertContrl.create({
+      header: 'Do you really want to delete this item?',
+        inputs: [
+         {name: 'field1',
+           type: 'text',
+         }
+      ],
+      buttons: [{
+        text: 'Cancel',
+        handler: () => { }
+      },{
+      text: 'Confirm',
+        handler: (data) => {
+          console.log(name);
+          this.service.deleteItem(name).subscribe({
+            next: () => {
+              console.log("Item deleted successfully");
+              window.location.reload();
+            },
+            error: (err) => {
+              console.error('Delete failed:', err);
+            }
+          });
+        }
+     }]
+   });
+   await alert.present();
+
   }
 
 }

@@ -46,7 +46,7 @@ export class Tab2Page {
         next: (data) => {
           console.log("Item added", data);
           alert("Item added!");
-          this.router.navigate(['/tabs/tab1'])
+          this.router.navigate(['/tabs/tab1']);
         },
         error: (err) => {
           console.log("Error while adding the item", err); 

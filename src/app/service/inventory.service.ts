@@ -38,6 +38,9 @@ export class InventoryService {
   // update item using item name
 
   // delete item using item name
+  public deleteItem(name:string){
+    return this.http.delete<InventoryItem>(`${this.url}/${name}`);
+  }
 
 }
 

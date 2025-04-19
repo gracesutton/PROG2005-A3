@@ -44,6 +44,7 @@
         <ion-col>Stock Status</ion-col>
         <ion-col>Featured Item</ion-col>
         <ion-col>Special Note</ion-col>
+        <ion-col></ion-col>
       </ion-row>
       <ion-row *ngFor="let item of displayItems">
         <ion-col>{{item.item_id}}</ion-col>
@@ -55,6 +56,9 @@
         <ion-col>{{item.stock_status}}</ion-col>
         <ion-col>{{item.featured_item ? 'Yes' : 'No'}}</ion-col>
         <ion-col>{{item.special_note}}</ion-col>
+        <ion-col>
+          <ion-button color="danger" size="small" (click)="deleteItem(item.item_name)" >Delete</ion-button>
+        </ion-col>
       </ion-row>
     </ion-grid>
   </section>
