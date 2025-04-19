@@ -35,3 +35,14 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import "@ionic/angular/css/palettes/dark.system.css";
+
+h2, p {
+    text-align: center;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+h2 {
+    padding-top: 30px;
+    padding-bottom: 20px;
+}

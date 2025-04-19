@@ -5,10 +5,6 @@ ion-content {
     --padding-end: 40px;
 }
 
-h2 {
-    text-align: center;
-}
-
 /* Box styles */
 #search-box, #table-box {
     border: 1px solid #ccc;
@@ -23,6 +19,8 @@ h2 {
 /* Light grey background for form and search boxes */
 #search-box {
     background-color: #f2f2f2;
+    display: flex;
+    flex-direction: column;
 }
   
 #table-box {
@@ -32,13 +30,15 @@ h2 {
 
 #message {
     margin-top: 10px;
-    margin-bottom: 20px;
+    // margin-bottom: 10px;
     color: rgb(224, 0, 0);
 }
 
 #search-box ion-input {
     border: 1px solid #000;
     max-width: 50%;
+    margin: 0 auto;
+    margin-bottom: 15px;
 }
 
 ion-grid {

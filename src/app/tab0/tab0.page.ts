@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-tab0',
@@ -6,26 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tab0.page.scss'],
   standalone: false,
 })
-export class Tab0Page implements OnInit {
+export class Tab0Page {
 
   constructor() { }
 
-  ngOnInit() {
-  }
-
-  navigateToTab1() {
-
-  }
-
-  navigateToTab2() {
-
-  }
-
-  navigateToTab3() {
-
-  }
-
-  navigateToTab4() {
-
-  }
 }

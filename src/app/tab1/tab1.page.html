@@ -6,27 +6,22 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-header collapse="condense">
-  <ion-toolbar>
-    <ion-title size="large">Search Items</ion-title>
-  </ion-toolbar>
-</ion-header> 
-
-<app-explore-container name="Tab 1 page"></app-explore-container>
-
 <ion-content [fullscreen]="true">
-
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Search Items</ion-title>
+    </ion-toolbar>
+  </ion-header> 
+  
   <h2>Search Items</h2>
+  <p>Here you can view all the item records and also search for items by name.</p>
 
   <!-- Search Box -->
   <section id="search-box">
-    
-    <p>Here you can view all the item records and also search for items by name.</p>
-
-    <ion-input [(ngModel)]="searched_item">Enter item name:</ion-input>
+    <ion-label for="searched_item">Enter an item name:</ion-label>
+    <ion-input id="searched_item" [(ngModel)]="searched_item"></ion-input>
     <ion-button (click)="searchItem()">Search</ion-button>
     <ion-button (click)="clearForm()">Clear</ion-button>
-    <br>
     <div id="message">{{ message }}</div> 
   </section>
 
