@@ -1,3 +1,35 @@
 .error {
     color:red;
+    margin-bottom: 1%;
+}
+
+ion-label {
+    margin:1%;
+}
+
+.inputError {
+    background-color: red;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    padding : 2% 10% 10% 10%;
+    align-items: center;
+}
+
+ion-input {
+    width: 20%;
+    margin-bottom: 1%;
+    text-align: center;
+    background-color: rgb(68, 64, 64);
+    border-radius: 5px;
+}
+
+ion-select {
+    width: 20%;
+    margin-bottom: 1%;
+    text-align: center;
+    background-color: rgb(68, 64, 64);
+    border-radius: 5px;
 }
