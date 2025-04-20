@@ -33,11 +33,16 @@ export class InventoryService {
 
   // list featured items
 
+
   // update item using item name
+  public updateItem(name: string, updatedItem: InventoryItem) {
+    return this.http.put<{ message: string }>(`${this.url}/${name}`, updatedItem);
+  }
+
 
   // delete item using item name
-  public deleteItem(name:string){
-    return this.http.delete<InventoryItem>(`${this.url}/${name}`);
+  public deleteItem(name: string) {
+    return this.http.delete<{ message: string }>(`${this.url}/${name}`);
   }
 
 }
