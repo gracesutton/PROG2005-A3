@@ -1,0 +1,108 @@
+/* Main page background and font setup */
+ion-content {
+    padding: 16px;
+    --background: #f9f9fb;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  /* Heading */
+  h2 {
+    font-size: 22px;
+    margin-bottom: 12px;
+    color: #1c1c1e;
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  /* Main sections - search and table */
+  #search-box,
+  #table-box {
+    background-color: white;
+    padding: 16px; 
+    margin-bottom: 24px; 
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05); /* Light shadow for depth */
+  }
+  
+  /* Paragraph text inside the search box */
+  #search-box p {
+    margin: 4px 0;
+    color: #696969; 
+    font-size: 14px;
+  }
+
+    /* Basic paragraph text */
+  p{
+    font-size: 16px;
+    margin-bottom: 12px;
+    color: #1c1c1e; /* Dark grey text */
+    text-align: center;
+  }
+  
+  /* Input and dropdowns */
+  ion-input,
+  ion-select {
+    --background: #f2f2f7;
+    --padding-start: 12px; 
+    margin-bottom: 12px;
+    border-radius: 8px; 
+    font-size: 15px;
+  }
+  
+  /* General buttons */
+  ion-button {
+    margin: 4px 4px 4px 0;
+    --border-radius: 10px;
+    font-size: 14px;
+    min-height: 40px;
+    padding: 0 14px;
+  }
+  
+  
+
+  
+  /* titles for each column (first row) */
+  ion-row:first-child {
+    background-color: #f2f2f7;
+    font-weight: bold;
+    color: #1c1c1e;
+    font-size: 14px;
+  }
+  
+  /* Table row */
+  ion-row {
+    border-bottom: 1px solid #ebebf0; 
+    align-items: center;
+    padding: 8px 0;
+  }
+  
+  /* Table cell content */
+  ion-col {
+    font-size: 14px;
+    padding: 6px;
+  }
+  
+  /* Message box under the search */
+  #message {
+    margin-top: 8px;
+    font-weight: 500;
+    color: #ff3b30; /* Red for error or alerts */
+  }
+  
+  /* Small screen adjustment for phones */
+  @media (max-width: 390px) {
+    h2 {
+      font-size: 20px;
+    }
+  
+    ion-col {
+      font-size: 13px;
+      padding: 4px;
+    }
+  
+    ion-button {
+      font-size: 13px;
+      min-height: 36px;
+    }
+  }
+  
