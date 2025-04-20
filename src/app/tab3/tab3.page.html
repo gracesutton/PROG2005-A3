@@ -3,23 +3,141 @@
     <ion-title>
       Edit Items
     </ion-title>
-    <!-- Help widget for default header -->
-    <ion-button slot="end" routerLink="/tabs/tab5">
-      <ion-icon slot="icon-only" name="help-circle-outline"></ion-icon>
-    </ion-button>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Edit Items</ion-title>
-      <!-- Help widget for condensed header -->
-      <ion-button slot="end" routerLink="/tabs/tab5">
-        <ion-icon slot="icon-only" name="help-circle-outline"></ion-icon>
-      </ion-button>
-    </ion-toolbar>
-  </ion-header>
+<ion-header collapse="condense">
+  <ion-toolbar>
+    <ion-title size="large">Edit Items</ion-title>
+  </ion-toolbar>
+</ion-header> 
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+<app-explore-container name="Tab 1 page"></app-explore-container>
+
+<ion-content [fullscreen]="true">
+
+  <h2>Edit Items</h2>
+
+  <!-- Search Box -->
+  <!-- Same format of code as the search items as there are many similarities -->
+  <section id="search-box">
+    
+    <p>Here you can Edit any item existing in the record</p>
+    <p>(Update or delete)</p>
+
+    <ion-input [(ngModel)]="searched_item">Enter item name:</ion-input>
+    <ion-button (click)="searchItem()">Search</ion-button>
+    <!-- <ion-button (click)="newSearch()">New Search</ion-button> -->
+    <br>
+    <div id="message">{{ message }}</div> 
+  </section>
+
+  <!-- Table Box -->
+  <section id="table-box" *ngIf="displayItems && displayItems.length > 0">
+    <ion-grid>
+      <ion-row>
+        <ion-col>Item ID</ion-col>
+        <ion-col>Name</ion-col>
+        <ion-col>Category</ion-col>
+        <ion-col>Quantity</ion-col>
+        <ion-col>Price</ion-col>
+        <ion-col>Supplier</ion-col>
+        <ion-col>Stock Status</ion-col>
+        <ion-col>Featured Item</ion-col>
+        <ion-col>Special Note</ion-col>
+        <ion-col>Edit</ion-col>
+      </ion-row>
+
+
+
+
+<!---------------------------- TABLE - EDIT/DELETE ITEMS BY NAME ----------------------------->
+
+
+
+      <!-- Loop through each item to display one row per item-->
+      <ion-row *ngFor="let item of displayItems">
+        
+  
+        <!-- Item ID (read-only) -->
+        <ion-col>{{ item.item_id }}</ion-col>
+
+
+        <!-- Below is a read-only and "edit mode" (once button is clicked) for each attribute-->
+        <!-- Item Name -->
+        <ion-col *ngIf="editingItemName !== item.item_name">{{ item.item_name }}</ion-col> <!-- This shows the item name as plain text, this is how it is displayed before edit or delete is clicked -->
+        <ion-col *ngIf="editingItemName === item.item_name"> <!-- Changes each cell to an editable input box (the edit button has been clicked in "edit mode") -->
+          <ion-input [(ngModel)]="item.item_name"></ion-input> <!-- Creates editble text box -->
+        </ion-col>
+      
+        <!-- Category -->
+        <ion-col *ngIf="editingItemName !== item.item_name">{{ item.category }}</ion-col>
+        <ion-col *ngIf="editingItemName === item.item_name">
+          <ion-input [(ngModel)]="item.category"></ion-input>
+        </ion-col>
+      
+        <!-- Quantity -->
+        <ion-col *ngIf="editingItemName !== item.item_name">{{ item.quantity }}</ion-col>
+        <ion-col *ngIf="editingItemName === item.item_name">
+          <ion-input type="number" [(ngModel)]="item.quantity"></ion-input>
+        </ion-col>
+      
+        <!-- Price -->
+        <ion-col *ngIf="editingItemName !== item.item_name">{{ item.price }}</ion-col>
+        <ion-col *ngIf="editingItemName === item.item_name">
+          <ion-input type="number" [(ngModel)]="item.price"></ion-input>
+        </ion-col>
+      
+        <!-- Supplier Name -->
+        <ion-col *ngIf="editingItemName !== item.item_name">{{ item.supplier_name }}</ion-col>
+        <ion-col *ngIf="editingItemName === item.item_name">
+          <ion-input [(ngModel)]="item.supplier_name"></ion-input>
+        </ion-col>
+      
+        <!-- Stock Status -->
+        <ion-col *ngIf="editingItemName !== item.item_name">{{ item.stock_status }}</ion-col>
+        <ion-col *ngIf="editingItemName === item.item_name">
+          <ion-input [(ngModel)]="item.stock_status"></ion-input>
+        </ion-col>
+      
+        <!-- Featured Item (yes/no) -->
+        <ion-col *ngIf="editingItemName !== item.item_name">{{ item.featured_item ? 'Yes' : 'No' }}</ion-col>
+        <ion-col *ngIf="editingItemName === item.item_name">
+          <ion-select [(ngModel)]="item.featured_item">
+            <ion-select-option [value]="true">Yes</ion-select-option>
+            <ion-select-option [value]="false">No</ion-select-option>
+          </ion-select>
+        </ion-col>
+      
+        <!-- Special Note -->
+        <ion-col *ngIf="editingItemName !== item.item_name">{{ item.special_note }}</ion-col>
+        <ion-col *ngIf="editingItemName === item.item_name">
+          <ion-input [(ngModel)]="item.special_note"></ion-input>
+        </ion-col>
+
+
+
+
+<!------------------------------- BUTTONS ----------------------------------------->
+      
+        <!-- Buttons before in 'edit mode' -->
+        <ion-col *ngIf="editingItemName !== item.item_name">
+          <!-- Button to edit row -->
+          <ion-button (click)="editItem(item)">Update</ion-button>
+          <!-- Button to delete row (red button for delete)-->
+          <ion-button color="danger" (click)="deleteItem(item.item_name)">Delete</ion-button>
+        </ion-col>
+      
+        <!-- Buttons in 'edit mode' -->
+        <ion-col *ngIf="editingItemName === item.item_name">
+          <!-- Button to confirm edit -->
+          <ion-button (click)="confirmUpdate(item)">Confirm</ion-button>
+          <!-- Button to cancel edit -->
+          <ion-button (click)="cancelEdit()">Cancel</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </section>
+
+
 </ion-content>
