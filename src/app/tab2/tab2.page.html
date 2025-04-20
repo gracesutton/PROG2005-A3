@@ -70,4 +70,35 @@
 
     <ion-button type="submit">Submit</ion-button>
   </form>
+  <h2>Featured Items</h2>
+  <!-- Table Box -->
+  <section id="table-box">
+    <!-- Table -->
+    
+    <ion-grid>
+      <ion-row>
+        <ion-col>Item ID</ion-col>
+        <ion-col>Name</ion-col>
+        <ion-col>Category</ion-col>
+        <ion-col>Quantity</ion-col>
+        <ion-col>Price</ion-col>
+        <ion-col>Supplier</ion-col>
+        <ion-col>Stock Status</ion-col>
+        <ion-col>Featured Item</ion-col>
+        <ion-col>Special Note</ion-col>
+      </ion-row>
+      <ion-row *ngFor="let item of displayItems">
+        <ion-col>{{item.item_id}}</ion-col>
+        <ion-col>{{item.item_name}}</ion-col>
+        <ion-col>{{item.category}}</ion-col>
+        <ion-col>{{item.quantity}}</ion-col>
+        <ion-col>{{item.price}}</ion-col>
+        <ion-col>{{item.supplier_name}}</ion-col>
+        <ion-col>{{item.stock_status}}</ion-col>
+        <ion-col>{{item.featured_item ? 'Yes' : 'No'}}</ion-col>
+        <ion-col>{{item.special_note}}</ion-col>
+      </ion-row>
+    </ion-grid>
+  </section>
+
 </ion-content>

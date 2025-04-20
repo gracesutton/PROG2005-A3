@@ -14,7 +14,7 @@ ion-label {
 form {
     display: flex;
     flex-direction: column;
-    padding : 2% 10% 10% 10%;
+    padding : 2% 10% 2% 10%;
     align-items: center;
 }
 
@@ -32,4 +32,33 @@ ion-select {
     text-align: center;
     background-color: rgb(68, 64, 64);
     border-radius: 5px;
+}
+
+ion-grid {
+    display: table;
+    width: 100%;
+    table-layout: fixed; // Ensures columns stay aligned
+    border-collapse: collapse;
+    text-align: center;
+    font-size: 12px;
+}
+
+ion-row {
+    display: table-row;
+}
+
+ion-col {
+    display: table-cell;
+    border: solid 1px #000000;
+}
+
+/* Box styles */
+#search-box, #table-box {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+    align-items: center;
 }

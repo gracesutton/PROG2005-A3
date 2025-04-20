@@ -14,6 +14,11 @@ export class Tab2Page {
 
   constructor(private service: InventoryService, private router: Router) {}
 
+  message:string = ""; // error display message
+  item:InventoryItem = new InventoryItem(0, "", "", 0, 0, "", "", 0, "");
+  items:InventoryItem[] = [];
+  displayItems: InventoryItem[] = []; // stores filtered items to display
+
   id = 0;
   name = "";
   category = "";
@@ -26,10 +31,32 @@ export class Tab2Page {
 
   submitButtonPressed = false;
 
+  ngOnInit() {
+    this.getFeaturedItems(); // display all items on load
+  }
+
+  getFeaturedItems() {
+    this.service.getAllItems().subscribe({
+      next: (items: InventoryItem[]) => {
+        this.items = []; 
+        for (let item of items) {
+          if (item.featured_item == 1) {
+            this.items.push(item);
+          }
+        }
+        this.displayItems = this.items;
+        this.message = "";
+      },
+      error: (err: any) => {
+        this.message = "Error loading records: " + err.status;
+      }
+    });
+  }
+
   onSubmit(myForm: NgForm) {
     this.submitButtonPressed = true;
 
-    if (myForm.valid) {
+    if (myForm.valid) { // Check if the form inputs valid conditions are met
       let item = new InventoryItem(
         this.id,
         this.name,
