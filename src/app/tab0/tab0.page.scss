@@ -1,11 +1,83 @@
-.button-container {
-    padding: 5px;
+// General page styling
+ion-content {
+    padding: 16px;
+    --background: #f9f9fb;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  // Header styling
+  ion-header,
+  ion-toolbar {
+    --background: #467ddd;
+    color: white;
+  }
+  
+  ion-title {
+    font-size: 20px;
+    font-weight: lighter;
+    color: white;
+  }
+  
+  // Heading text
+  h2 {
+    font-size: 24px;
+    margin: 16px 0;
     text-align: center;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
+    font-weight: bold;
+    color: #1d1d1e;
+  }
+  
+  // Paragraph text
+  p {
+    font-size: 16px;
+    color: #515151;
+    text-align: center;
+    margin: 8px 0 16px;
+  }
+  
+// Button container for tab links
+.button-container ion-button {
+  width: 90%; 
+  max-width: 400px; 
+  margin-inline: auto; 
+  --border-radius: 10px;
 }
 
-.button-container ion-button {
-    margin: 8px 0;
+// Button container
+.button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: 24px;
 }
+
+  
+  /* Input styling */
+  ion-input {
+    margin-bottom: 10px;
+    width: 80%;
+    max-width: 400px;
+    margin-inline: auto;
+    display: block;
+    --background: #f2f2f7;
+  }
+  
+
+
+//Responsive design
+@media (max-width: 700px) {
+
+    ion-content {
+        --padding-top: 30px;
+        --padding-bottom: 30px;
+        --padding-start: 30px;
+        --padding-end: 30px;
+    }
+  
+    ion-col {
+        font-size: 10px;
+    }
+  }
+  
+  
