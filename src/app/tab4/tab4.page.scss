@@ -1,3 +1,23 @@
+// General page styling
+ion-content {
+    padding: 16px;
+    --background: #f9f9fb;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  // Header styling
+  ion-header,
+  ion-toolbar {
+    --background: #467ddd;
+    color: white;
+  }
+  
+  ion-title {
+    font-size: 20px;
+    font-weight: lighter;
+    color: white;
+  }
+
 div {
     align-items: center;
     text-align: left;
@@ -29,4 +49,19 @@ ul {
     margin: 20px auto;
     width: 90%;
     max-width: 700px;
+  }
+
+//Responsive design
+@media (max-width: 700px) {
+
+    ion-content {
+        --padding-top: 30px;
+        --padding-bottom: 30px;
+        --padding-start: 30px;
+        --padding-end: 30px;
+    }
+  
+    ion-col {
+        font-size: 10px;
+    }
   }
