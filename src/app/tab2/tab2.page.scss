@@ -1,3 +1,25 @@
+
+// General page styling
+ion-content {
+    padding: 16px;
+    --background: #f9f9fb;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  // Header styling
+  ion-header,
+  ion-toolbar {
+    --background: #467ddd;
+    color: white;
+  }
+  
+  ion-title {
+    font-size: 20px;
+    font-weight: lighter;
+    color: white;
+  }
+
+
 .error {
     color:red;
     margin-bottom: 1%;
@@ -8,7 +30,7 @@ ion-label {
 }
 
 .inputError {
-    background-color: red;
+    background-color: rgb(208, 32, 32);
 }
 
 form {
@@ -22,7 +44,7 @@ ion-input {
     width: 20%;
     margin-bottom: 1%;
     text-align: center;
-    background-color: rgb(68, 64, 64);
+    background-color: rgb(242, 242, 242);
     border-radius: 5px;
 }
 
@@ -30,13 +52,13 @@ ion-select {
     width: 20%;
     margin-bottom: 1%;
     text-align: center;
-    background-color: rgb(68, 64, 64);
+    background-color: rgb(242, 242, 242);
     border-radius: 5px;
 }
 
 ion-grid {
     display: table;
-    width: 100%;
+    width:fit-content;
     table-layout: fixed; // Ensures columns stay aligned
     border-collapse: collapse;
     text-align: center;
@@ -61,4 +83,27 @@ ion-col {
     max-width: 600px;
     text-align: center;
     align-items: center;
+}
+/* Responsive design */
+@media (max-width: 700px) {
+  ion-content {
+    --padding-top: 30px;
+    --padding-bottom: 30px;
+    --padding-start: 20px;
+    --padding-end: 20px;
+  }
+
+  ion-col {
+    font-size: 10px;
+  }
+
+  ion-input,
+  ion-select {
+    width: 95%;
+  }
+
+  ion-button {
+    font-size: 13px;
+    padding: 0 12px;
+  }
 }
