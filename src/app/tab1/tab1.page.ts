@@ -28,6 +28,7 @@ export class Tab1Page implements OnInit {
     this.getAllItems(); // display all items on load
   }
 
+  // retrieves all items from the server and displays them in the table
   getAllItems() {
     this.service.getAllItems().subscribe({
       next: (item: InventoryItem[]) => {
@@ -41,7 +42,9 @@ export class Tab1Page implements OnInit {
     });
   }
 
+  // searches for an item on the server and displays it in the table
   searchItem() {
+
     if (!this.searched_item || this.searched_item.trim().length === 0) {
       this.message = "Please enter an item name to search.";
       return;
@@ -49,51 +52,24 @@ export class Tab1Page implements OnInit {
 
     this.service.getItem(this.searched_item).subscribe({
       next: (item:InventoryItem[]) => {
-        this.item = item[0]
-        this.displayItems = item; // display found item in table
+        if (item && item.length > 0) { // if there is a response
+          this.item = item[0]
+          this.displayItems = item; // display found item in table
+
+        } else { // no results
+          this.displayItems = [];
+          this.message = "Item not found";
+        }
       },
       error: (err:any) => {this.message = "Error: " + err.status}
       });
   }
 
+  // clears the form and displays all items by default
   clearForm() {
     this.searched_item = "";
     this.message = "";
     this.getAllItems();
-  }
-
-  
-
-  async deleteItem(name:string){
-
-    const alert = await this.alertContrl.create({
-      header: 'Do you really want to delete this item?',
-        inputs: [
-         {name: 'field1',
-           type: 'text',
-         }
-      ],
-      buttons: [{
-        text: 'Cancel',
-        handler: () => { }
-      },{
-      text: 'Confirm',
-        handler: (data) => {
-          console.log(name);
-          this.service.deleteItem(name).subscribe({
-            next: () => {
-              console.log("Item deleted successfully");
-              window.location.reload();
-            },
-            error: (err) => {
-              console.error('Delete failed:', err);
-            }
-          });
-        }
-     }]
-   });
-   await alert.present();
-
   }
 
 }

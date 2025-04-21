@@ -25,6 +25,9 @@ export class Tab3Page {
 
 //Method copied from 'tab1.page.ts'
   searchItem() {
+
+    this.message = ""; // clear previous messages
+
     if (!this.searched_item || this.searched_item.trim().length === 0) {
       this.message = "Please enter an item name to search.";
       return;
@@ -32,8 +35,15 @@ export class Tab3Page {
 
     this.service.getItem(this.searched_item).subscribe({
       next: (item:InventoryItem[]) => {
-        this.item = item[0]
-        this.displayItems = item; // display found item in table
+
+        if (item && item.length > 0) { // if there is a response
+          this.item = item[0]
+          this.displayItems = item; // display found item in table
+
+        } else { // no results
+          this.displayItems = [];
+          this.message = "Item not found";
+        }
       },
       error: (err:any) => {this.message = "Error: " + err.status}
       });
