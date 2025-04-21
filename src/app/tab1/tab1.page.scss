@@ -1,17 +1,23 @@
-/* Header */
-ion-header {
-    --background: #3880ff;
-    color: white;
-  }
-  
-  /* Title */
-  ion-title {
-    padding: 16px;
-    --background: #f9f9fb;
-    font-family: Arial, Helvetica, sans-serif;
-    color: #1c1c1e;
-  }
-  
+
+// General page styling
+ion-content {
+  padding: 16px;
+  --background: #f9f9fb;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+// Header styling
+ion-header,
+ion-toolbar {
+  --background: #467ddd;
+  color: white;
+}
+
+ion-title {
+  font-size: 20px;
+  font-weight: lighter;
+  color: white;
+}
   /* h2 font styling */
   h2 {
     font-size: 22px;
@@ -50,12 +56,19 @@ ion-header {
   }
   
   /* Button */
-  #search-box ion-button {
+  ion-button {
     margin: 4px 4px 4px 0;
     --border-radius: 10px;
     font-size: 14px;
     min-height: 40px;
     padding: 0 14px;
+  }
+  
+  ion-button[slot="end"] {
+    --border-radius: 12px; /* optional: more or less round */
+    width: 40px;
+    height: 40px;
+    padding: 0;
   }
   
   /* error message */
@@ -98,12 +111,20 @@ ion-header {
     font-size: 0.95rem;
     color: #333;
   }
+  
 
-  /* Responsive Design */
+//Responsive design
 @media (max-width: 700px) {
+
+  ion-content {
+      --padding-top: 30px;
+      --padding-bottom: 30px;
+      --padding-start: 30px;
+      --padding-end: 30px;
+  }
 
   ion-col {
       font-size: 10px;
   }
-  
 }
+
