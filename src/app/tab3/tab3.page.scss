@@ -95,6 +95,25 @@ ion-title {
     padding: 6px;
   }
   
+
+
+    /* Button */
+    ion-button {
+      margin: 4px 4px 4px 0;
+      --border-radius: 10px;
+      font-size: 14px;
+      min-height: 40px;
+      padding: 0 14px;
+    }
+    
+    ion-button[slot="end"] {
+      --border-radius: 12px; /* optional: more or less round */
+      width: 40px;
+      height: 40px;
+      padding: 0;
+    }
+
+    
   /* Message box under the search */
   #message {
     margin-top: 8px;
